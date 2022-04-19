@@ -19,21 +19,6 @@ jobs:
       - checkout
       - heroku/install
       - heroku/deploy-via-git
-      - run:
-          name: "Database URL"
-          command: echo $DATABASE_URL
-      - run:
-          name: "Lang"
-          command: echo $LANG
-      - run:
-          name: "Rack Environment"
-          command: echo $RACK_ENV
-      - run:
-          name: "Rails Environment"
-          command: echo $RAILS_ENV
-      - run:
-          name: "Secret Key Base"
-          command: echo $SECRET_KEY_BASE
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
