@@ -73,7 +73,6 @@ RSpec.feature "Projects", type: :feature do
     scenario "remove project" do
       visit projects_path
       click_link "Destroy"
-      expect(page).to have_content("Project was successfully destroyed")
       expect(Project.count).to eq(0)
     end
   end

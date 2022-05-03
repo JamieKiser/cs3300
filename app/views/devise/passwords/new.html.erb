@@ -1,3 +1,45 @@
+<header>
+      <div class="navbar navbar-dark bg-dark box-shadow">
+        <div class="container d-flex justify-content-between">
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <a class="navbar-brand" href="/projects">Jamie Kiser</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+  
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/projects">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <% if user_signed_in? %>
+                <a class="nav-link" href="/users/edit">Edit Account</a>
+              <% else %>
+                <a class="nav-link" href="/users/sign_in">Login</a>
+              <% end %>
+            </li>
+            <li class="nav-item">
+              <% if user_signed_in? %>
+              <%= link_to "Logout", destroy_user_session_path, method: :delete, class: 'nav-link' %>
+              <% else %>
+                <a class="nav-link" href="/users/sign_up">Sign Up</a>
+              <% end %>
+            </li>
+          </ul>
+          <div class="form-inline my-2 my-lg-0">
+            <% if user_signed_in? %>
+              <a href="/projects/new" class="btn btn-info">New Project</a>
+            <% end %>
+          </div>
+        </div>
+      </nav>
+        </div>
+      </div>
+    </header>
+
+<h2>Forgot your password?</h2>
+<body class="text-center">
 <h2>Forgot your password?</h2>
 
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
@@ -9,8 +51,8 @@
   </div>
 
   <div class="actions">
+    <p></p>
     <%= f.submit "Send me reset password instructions" %>
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
